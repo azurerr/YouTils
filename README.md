@@ -54,8 +54,6 @@ Contributions are welcome! If you have any ideas, bug reports, or feature reques
 ## License 📄
 
 This project is licensed under the [MIT License](LICENSE).
-```
 
-Feel free to customize the emojis or add more emojis as desired. Emojis can add visual interest and convey the tone or excitement associated with different sections of your `README.md` file.
 
 🚧 This project is a work in progress. Feel free to contribute and help improve it! 🚧

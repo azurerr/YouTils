@@ -17,6 +17,7 @@ YouTils is a website that provides a collection of helpful utilities to assist u
 - Node.js
 - Firebase
 - GraphQL
+- SASS
 
 ## Getting Started 🚀
 

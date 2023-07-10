@@ -1,0 +1,26 @@
+@import '../styles/variables';
+
+.navigation {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: $background-color;
+    font-family: 'Nunito Sans', sans-serif;
+  
+    .menu {
+      display: flex;
+      flex-direction: column;
+      font-size: large;
+      font-weight: bold;
+      margin-top: 2rem;
+  
+      .menu-item {
+        margin-right: 1rem;
+        margin-bottom: 1.5rem;
+        align-self: flex-start;
+      }
+    }
+  }
+  

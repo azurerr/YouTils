@@ -2,6 +2,7 @@
 # YouTils 🌐
 
 YouTils is a website that provides a collection of helpful utilities to assist users in various tasks.
+🚧 This project is a work in progress. Feel free to contribute and help improve it! 🚧
 
 ## Features ✨
 
@@ -56,5 +57,3 @@ Contributions are welcome! If you have any ideas, bug reports, or feature reques
 
 This project is licensed under the [MIT License](LICENSE).
 
-
-🚧 This project is a work in progress. Feel free to contribute and help improve it! 🚧

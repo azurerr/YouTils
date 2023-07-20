@@ -1,26 +1,60 @@
 @import '../styles/variables';
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
 
 .navigation {
+    width:auto;
+    height: 100%;
     display: flex;
     align-self: flex-start;
     flex-direction: column;
     justify-content: space-between;
     padding: 1rem;
     background-color: $background-color;
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Capriola', sans-serif;
   
     .menu {
       display: flex;
       flex-direction: column;
-      font-size: large;
+      font-size: .8em ;
       font-weight: bold;
-      margin-top: 2rem;
+      margin-top: 1rem;
+      text-overflow: ellipsis;
+
+      a{
+        color: $link-color;
+        text-decoration: none;
+        background: transparent;
+        transition: background 1s ease;
+        
+        &:hover{
+          color: $hover-color;
+          background: lighten($hover-color, 10%);
+          border-bottom: 1px solid $hover-color;
+        }
+        
+        &:visited{
+          color: $visited-color;
+          border-color: $visited-color;
+        }
+      }
+
+      .site-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
   
       .menu-item {
-        margin-right: 1rem;
         margin-bottom: 1.5rem;
         align-self: flex-start;
+        text-overflow: ellipsis;
+        min-width: 0;
       }
     }
+
+  }
+
+  .site-title {
+    padding: 2rem;
   }
   

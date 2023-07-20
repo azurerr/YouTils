@@ -2,6 +2,7 @@
 # YouTils 🌐
 
 YouTils is a website that provides a collection of helpful utilities to assist users in various tasks.
+
 🚧 This project is a work in progress. Feel free to contribute and help improve it! 🚧
 
 ## Features ✨
@@ -9,7 +10,7 @@ YouTils is a website that provides a collection of helpful utilities to assist u
 - ⏰ **Pomodoro Clock** : A time management tool based on the Pomodoro Technique to improve productivity. 🚧
 - 🎲 **Lotto Number Generator** : Generate random numbers for lotteries or other games of chance. 🚧
 - ⌛ **Timer** : Set and track specific time durations for tasks that require precise timing. 🚧
-- 🔢 **Word Count** : Determine the number of words in a given text. 🚧
+- 🔢 **Word Counter** : Determine the number of words in a given text. 🚧
 
 ## Technologies Used 🛠️
 

@@ -1,3 +1,7 @@
 $background-color: rgba(248, 248, 248, 0.2);
 $primary-color: #007bff;
 $secondary-color: #6c757d;
+
+$link-color: #4478A6;
+$hover-color: darken($link-color, 20%);
+$visited-color: lighten($link-color, 20%);

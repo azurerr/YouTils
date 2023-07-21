@@ -6,7 +6,7 @@ import { Box, Container } from '@mui/system';
 function Layout(props) {
 
     return (
-        <div className="App">
+        <>
             <header className="App-header">
             </header>
             <body className="App-body">
@@ -15,7 +15,7 @@ function Layout(props) {
                     <Box mb={10} mt={4}>{props.children}</Box>
                 </Container>
             </body>
-        </div>
+        </>
     );
 
 }

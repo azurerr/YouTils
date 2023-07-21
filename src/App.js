@@ -44,7 +44,7 @@ function App() {
         <Route path="/lotto" element={<LottoNumbers />} />
         <Route path="/timer" element={<Timer />} />
         <Route path="/wordcounter" element={<WordCounter />} />
-        <Route path="*" element={<ErrorPage />} />
+        <Route path="*" errorElement={<ErrorPage />} />
       </Routes>
       {/* <RouterProvider router={router} ></RouterProvider> */}
     </Layout>

@@ -31,16 +31,54 @@
 }
 
 .App-body {
-  background-color: #282c34;
+
+  overflow: hidden;
+  //background-color: #282c34;
   display: flex;
   flex-direction:row;
   align-items: center;
 
   font-size: calc(10px + 2vmin);
-  color: white;
+  //color: white;
   height: 100vh;
+
+  //background-image: url("../public/images/pomodoro.jpg"); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
 }
 
+.home {
+  background-image: url("../public/images/home.jpg"); 
+}
+.pomodoro {
+  background-image: url("../public/images/pomodoro.jpg"); 
+}
+.lotto {
+  background-image: url("../public/images/lotto.jpg"); 
+}
+.timer {
+  background-image: url("../public/images/timer.jpg"); 
+}
+.wordcounter {
+  background-image: url("../public/images/wordcounter.jpg"); 
+}
+
+
+.menuTitle {
+  font-size: 1em;
+}
+
+.timeDisplay {
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+.button {
+  display: flex;
+  font-size: 2.5em;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -7,7 +7,7 @@ YouTils is a website that provides a collection of helpful utilities to assist u
 
 ## Features ✨
 
-- ⏰ **Pomodoro Clock** : A time management tool based on the Pomodoro Technique to improve productivity. 🚧
+- ⏰ **Pomodoro Clock** : A time management tool based on the Pomodoro Technique to improve productivity. 
 - 🎲 **Lotto Number Generator** : Generate random numbers for lotteries or other games of chance. 🚧
 - ⌛ **Timer** : Set and track specific time durations for tasks that require precise timing. 🚧
 - 🔢 **Word Counter** : Determine the number of words in a given text. 🚧

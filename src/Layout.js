@@ -24,9 +24,24 @@ function Layout(props) {
         setMenu('home');
     }
 
+    const googleAnalytics = () => {
+        return (
+            <>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWYCXFEYX6"></script>
+                <script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){window.dataLayer.push(arguments)}
+                    gtag('js', new Date());
+                    gtag('config', 'G-TWYCXFEYX6');
+                </script>
+            </>
+        )
+    }
+
     return (
         <>
             <header className="App-header">
+                {googleAnalytics}
             </header>
             <body className={`App-body ${menu}`}>
                 <Navigation />
@@ -36,7 +51,6 @@ function Layout(props) {
             </body>
         </>
     );
-
 }
 
 export default Layout;

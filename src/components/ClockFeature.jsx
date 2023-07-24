@@ -103,14 +103,15 @@ export default function ClockFeature({ activeTab }) {
                 </Button>
 
             </div >
-            {generateStartButton()}
-            < Button
-                onClick={() => initialize()}
-                sx={{ color: 'black', padding: 1 }}
-                disabled={startPressed === 0 && !isResetable}>
-                <RestartAltIcon sx={{ fontSize: 40 }}></RestartAltIcon>
-            </Button >
-
+            <div>
+                {generateStartButton()}
+                < Button
+                    onClick={() => initialize()}
+                    sx={{ color: 'black', padding: 1 }}
+                    disabled={startPressed === 0 && !isResetable}>
+                    <RestartAltIcon sx={{ fontSize: 40 }}></RestartAltIcon>
+                </Button >
+            </div>
         </>
     )
 

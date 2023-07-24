@@ -4,16 +4,8 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
-  createBrowserRouter,
-  RouterProvider,
   BrowserRouter
 } from "react-router-dom";
-import PomodoroClock from './components/PomodoroClock';
-import ErrorPage from "./error-page";
-import Navigation from './components/Navigation';
-import Home from './components/Home'
-import LottoNumbers from './components/LottoNumbers'
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

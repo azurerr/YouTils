@@ -2,6 +2,10 @@ $background-color: rgba(248, 248, 248, 0.4);
 $primary-color: #010d1a;
 $secondary-color: #708ea9;
 
-$link-color: #031525;
-$hover-color: darken($link-color, 10%);
-$visited-color: lighten($link-color, 10%);
+$link-color-light: #ffffff;
+$hover-color-light: lighten($link-color-light, 60%);
+$visited-color-light: lighten($link-color-light, 10%);
+
+$link-color-dark: #031525;
+$hover-color-dark: lighten($link-color-dark, 60%);
+$visited-color-dark: lighten($link-color-dark, 10%);

@@ -11,7 +11,7 @@ import Home from './components/Home';
 import LottoNumbers from './components/LottoNumbers';
 import Timer from './components/Timer';
 import WordCounter from './components/WordCounter';
-import { Route, Routes, Navigate } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 
 // const router = createBrowserRouter([

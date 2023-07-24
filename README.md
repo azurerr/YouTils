@@ -20,6 +20,7 @@ YouTils is a website that provides a collection of helpful utilities to assist u
 - Firebase
 - GraphQL
 - SASS
+- Material UI
 
 ## Getting Started 🚀
 

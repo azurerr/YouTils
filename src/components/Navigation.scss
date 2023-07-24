@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
 
 .navigation {
-    width:auto;
-    height: 100%;
+    min-width: max-content;
+    height: 100vh;
     display: flex;
     align-self: flex-start;
     flex-direction: column;
@@ -21,20 +21,20 @@
       text-overflow: ellipsis;
 
       a{
-        color: $link-color;
+        color: $link-color-dark;
         text-decoration: none;
         background: transparent;
         transition: background 1s ease;
         
         &:hover{
-          color: $hover-color;
-          background: lighten($hover-color, 10%);
-          border-bottom: 1px solid $hover-color;
+          color: $hover-color-dark;
+          background: lighten($hover-color-dark, 10%);
+          border-bottom: 1px solid $hover-color-dark;
         }
         
         &:visited{
-          color: $visited-color;
-          border-color: $visited-color;
+          color: $visited-color-dark;
+          border-color: $visited-color-dark;
         }
       }
 

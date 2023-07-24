@@ -1,17 +1,36 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from './components/Navigation';
 import { Box, Container } from '@mui/system';
+import { useLocation } from "react-router-dom";
 
 function Layout(props) {
+
+    const location = useLocation();
+    const [menu, setMenu] = useState('home');
+
+    useEffect(() => {
+        const currentPath = location.pathname;
+        let menu = currentPath.split('/').pop();
+        if (menu) {
+            setMenu(menu);
+        } else {
+            setMenu('home');
+        }
+    }, [location.pathname])
+
+
+    if (menu === '') {
+        setMenu('home');
+    }
 
     return (
         <>
             <header className="App-header">
             </header>
-            <body className="App-body">
+            <body className={`App-body ${menu}`}>
                 <Navigation />
-                <Container maxWidth={false} className="App-content">
+                <Container className="App-content">
                     <Box mb={10} mt={4}>{props.children}</Box>
                 </Container>
             </body>
@@ -19,6 +38,5 @@ function Layout(props) {
     );
 
 }
-
 
 export default Layout;

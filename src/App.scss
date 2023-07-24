@@ -8,9 +8,10 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+@media (max-width: 768px) {
+  body {
+    background-size: contain;
   }
 }
 
@@ -24,22 +25,43 @@
   color: white;
 }
 
-
-
 .App-link {
   color: #61dafb;
 }
 
 .App-body {
-  background-color: #282c34;
   display: flex;
   flex-direction:row;
   align-items: center;
-
+  min-width: fit-content;
   font-size: calc(10px + 2vmin);
-  color: white;
-  height: 100vh;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
+
+.home {
+  background-image: url("../public/images/home.jpg"); 
+}
+.pomodoro {
+  background-image: url("../public/images/pomodoro.jpg"); 
+}
+.lotto {
+  background-image: url("../public/images/lotto.jpg"); 
+}
+.timer {
+  background-image: url("../public/images/timer.jpg"); 
+}
+.wordcounter {
+  background-image: url("../public/images/wordcounter.jpg"); 
+}
+
+
+.menuTitle {
+  font-size: 1em;
+}
+
 
 
 @keyframes App-logo-spin {

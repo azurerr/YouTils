@@ -1,0 +1,73 @@
+@import '../styles/variables';
+
+.pomodoroBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: max-content;
+    justify-content : start;
+    overflow-y: auto;
+}
+  a{
+    color: $link-color-light;
+    text-decoration: none;
+    background: transparent;
+    
+    &:hover{
+      color: $hover-color-light;
+      font-weight: 500;
+      border-bottom: 1px solid $hover-color-light;
+    }
+    
+    &:visited{
+      color: #bceab2;
+      border-color: $visited-color-light;
+    }
+  }
+
+
+.pomodoroBox {
+    max-width: max-content;
+    background: rgba(255, 255, 255, 0.4);
+    padding: 2em;
+  }
+
+
+.timeDisplay {
+    font-size: 2.5em;
+    font-weight: 600;
+  }
+ 
+.description {
+    color: white;
+    font-size: .6em;
+    margin-top: .5em;
+}
+
+.pomodoroTab.Mui-selected {
+    font-weight: 600;
+}
+
+.pomodoroTime {
+    color: #af1b3f;
+  }
+  
+.shortBreak {
+    color: #404e7c;
+  }
+  
+.longBreak {
+    color: #251f47;
+  }
+
+.button-start {
+    color: white;
+    background: linear-gradient(to right, #2b9348, #bf0603)!important;
+    font-weight: bold
+}
+
+.button-adjust {
+    font-size: 3em;
+    color: black;
+    margin-top: -.5em;
+}

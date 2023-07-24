@@ -1,7 +1,11 @@
-$background-color: rgba(248, 248, 248, 0.2);
-$primary-color: #007bff;
-$secondary-color: #6c757d;
+$background-color: rgba(248, 248, 248, 0.4);
+$primary-color: #010d1a;
+$secondary-color: #708ea9;
 
-$link-color: #4478A6;
-$hover-color: darken($link-color, 20%);
-$visited-color: lighten($link-color, 20%);
+$link-color-light: #ffffff;
+$hover-color-light: lighten($link-color-light, 60%);
+$visited-color-light: lighten($link-color-light, 10%);
+
+$link-color-dark: #031525;
+$hover-color-dark: lighten($link-color-dark, 60%);
+$visited-color-dark: lighten($link-color-dark, 10%);

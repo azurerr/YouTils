@@ -93,7 +93,7 @@ export default function ClockFeature({ activeTab }) {
 
     return (
         <>
-            <div className={`timeDisplay ${activeTab}`}>
+            <div className={`clock-time ${activeTab}`}>
                 <Button onClick={() => changeTime('decrease')} >
                     <RemoveCircleOutlineIcon className='button-adjust'></RemoveCircleOutlineIcon>
                 </Button>
@@ -103,11 +103,11 @@ export default function ClockFeature({ activeTab }) {
                 </Button>
 
             </div >
-            <div>
+            <div className="clock-play">
                 {generateStartButton()}
                 < Button
                     onClick={() => initialize()}
-                    sx={{ color: 'black', padding: 1 }}
+                    sx={{ color: 'black' }}
                     disabled={startPressed === 0 && !isResetable}>
                     <RestartAltIcon sx={{ fontSize: 40 }}></RestartAltIcon>
                 </Button >

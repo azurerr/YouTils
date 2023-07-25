@@ -42,6 +42,10 @@ function Layout(props) {
         <>
             <header className="App-header">
                 {googleAnalytics}
+                <meta name="description" content=" Discover YouTils, your ultimate collection of utilities! Enhance productivity with the Pomodoro Clock, try your luck with the Lotto Number Generator, set precise timings with the Timer, and count words effortlessly with the Word Counter. Streamline your tasks now!" />
+                <meta name="keywords" content="utilities, time management, Pomodoro Clock, Lotto Number Generator, Random Number Generator, Timer, Countdown Timer, Word Counter, productivity tools, Online Tools, Free Utilities, Time Tracking, Task Productivity, Free Online Utilities" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
             </header>
             <body className={`App-body ${menu}`}>
                 <Navigation />

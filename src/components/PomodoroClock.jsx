@@ -33,16 +33,16 @@ function PomodoroClock() {
 
     return (
         <>
+
             <div className='pomodoroBody' >
+                <h1 className='pomodoro-title'>Pomodoro Clock</h1>
+                <h4 className='description'>Be more productive and focused </h4 >
                 <Box className='pomodoroBox'>
                     {generateTabs()}
                     <ClockFeature activeTab={activeTab} />
                 </Box>
                 <div className='description'><a href="https://francescocirillo.com/products/the-pomodoro-technique" target="_blank" rel="noopener noreferrer">Pomodoro Technique?</a></div>
-                <div className='description'>Be more productive and focused </div >
             </div>
-
-
         </>
     );
 }

@@ -3,7 +3,7 @@
 
 YouTils is a website that provides a collection of helpful utilities to assist users in various tasks.
 
-🚧 This project is a work in progress. Feel free to contribute and help improve it! 🚧
+This project is a work in progress. Feel free to contribute and help improve it! 
 
 ## Features ✨
 
@@ -19,7 +19,7 @@ YouTils is a website that provides a collection of helpful utilities to assist u
 - Node.js
 - Firebase
 - GraphQL
-- SASS
+- SCSS
 - Material UI
 
 ## Getting Started 🚀

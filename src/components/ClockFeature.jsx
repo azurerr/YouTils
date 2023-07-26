@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './PomodoroClock.scss';
+import alarmSound from '../assets/audio/alarm.mp3';
+import notificationSound from '../assets//audio/notification.mp3'
 import Button from '@mui/material/Button'
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
@@ -7,9 +9,13 @@ import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 
-const POMODORO_TIME = 25 * 60;
-const SHORTBREAK_TIME = 5 * 60;
-const LONGBREAK_TIME = 15 * 60;
+
+//const POMODORO_TIME = 25 * 60;
+//const SHORTBREAK_TIME = 5 * 60;
+//const LONGBREAK_TIME = 15 * 60;
+const POMODORO_TIME = 4;
+const SHORTBREAK_TIME = 3;
+const LONGBREAK_TIME = 2;
 
 export default function ClockFeature({ activeTab }) {
 
@@ -29,6 +35,7 @@ export default function ClockFeature({ activeTab }) {
     const [startPressed, setStartPressed] = useState(0);
     const [isResetable, setIsResetable] = useState(false);
 
+
     const initialize = () => {
         setTime(initialTime);
         setIsActive(false);
@@ -41,15 +48,28 @@ export default function ClockFeature({ activeTab }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [activeTab]);
 
+
+
     useEffect(() => {
+
+        const playAlarmSound = () => {
+            if (activeTab === 'pomodoroTime') {
+                new Audio(notificationSound).play();
+            } else {
+                new Audio(alarmSound).play();
+            }
+        }
+
         let interval;
         if (isActive && time > 0) {
             interval = setInterval(() => {
                 setTime((prevTime) => prevTime - 1);
             }, 1000);
+        } else if (isActive && time === 0) {
+            playAlarmSound();
         }
         return () => clearInterval(interval);
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isActive, time]);
 
 
@@ -70,7 +90,7 @@ export default function ClockFeature({ activeTab }) {
             onClick={handleStartPause}
             disabled={time === 0}>
             {time === 0 ?
-                'FINISHED' : isActive ?
+                'Finished' : isActive ?
                     <PauseIcon></PauseIcon> : startPressed === 0 ?
                         <PlayArrowIcon></PlayArrowIcon> : 'Resume'}
         </Button>
@@ -112,6 +132,9 @@ export default function ClockFeature({ activeTab }) {
                     <RestartAltIcon sx={{ fontSize: 40 }}></RestartAltIcon>
                 </Button >
             </div>
+            {/* <audio ref={audioRef}>
+                <source src="/audio/alarm.mp3" type="audio/mpeg" />
+            </audio> */}
         </>
     )
 

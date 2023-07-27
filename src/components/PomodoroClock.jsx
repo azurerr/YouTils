@@ -6,7 +6,6 @@ import { Box, Tab, Tabs } from '@mui/material';
 
 function PomodoroClock() {
 
-
     const [activeTab, setActiveTab] = useState('pomodoroTime');
 
     const handleTabs = (event, tab) => {
@@ -33,7 +32,6 @@ function PomodoroClock() {
 
     return (
         <>
-
             <div className='pomodoro-body' >
                 <h1 className='pomodoro-title'>Pomodoro Clock</h1>
                 <h4 className='pomodoro-description'>Be more productive and focused </h4 >

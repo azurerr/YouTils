@@ -10,12 +10,12 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 
 
-//const POMODORO_TIME = 25 * 60;
-//const SHORTBREAK_TIME = 5 * 60;
-//const LONGBREAK_TIME = 15 * 60;
-const POMODORO_TIME = 4;
-const SHORTBREAK_TIME = 3;
-const LONGBREAK_TIME = 2;
+const POMODORO_TIME = 25 * 60;
+const SHORTBREAK_TIME = 5 * 60;
+const LONGBREAK_TIME = 15 * 60;
+// const POMODORO_TIME = 4;
+// const SHORTBREAK_TIME = 3;
+// const LONGBREAK_TIME = 2;
 
 export default function ClockFeature({ activeTab }) {
 
@@ -121,7 +121,6 @@ export default function ClockFeature({ activeTab }) {
                 <Button onClick={() => changeTime('increase')}>
                     <AddCircleOutlineIcon className='button-adjust' ></AddCircleOutlineIcon>
                 </Button>
-
             </div >
             <div className="clock-play">
                 {generateStartButton()}
@@ -132,9 +131,6 @@ export default function ClockFeature({ activeTab }) {
                     <RestartAltIcon sx={{ fontSize: 40 }}></RestartAltIcon>
                 </Button >
             </div>
-            {/* <audio ref={audioRef}>
-                <source src="/audio/alarm.mp3" type="audio/mpeg" />
-            </audio> */}
         </>
     )
 

@@ -5,6 +5,8 @@ YouTils is a website that provides a collection of helpful utilities to assist u
 
 This project is a work in progress. Feel free to contribute and help improve it! 
 
+![Screenshot of Pomodoro Clock](menu_pomodoro.jpg | | width=400)
+
 ## Features ✨
 
 - ⏰ **Pomodoro Clock** : A time management tool based on the Pomodoro Technique to improve productivity. 

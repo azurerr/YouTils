@@ -9,25 +9,11 @@
   pointer-events: none;
 }
 
-
-@media (max-width: 768px) {
-  body {
-    background-size: contain;
-  }
-  .home-body {
-    font-size: 15px;
-  }
-  .home-desc {
-    font-size: 13px;
-  }
-}
-
 .App-header {
   display: flex;
   justify-content: center;
   color: white;
 }
-
 
 .App-body {
   display: flex;
@@ -99,3 +85,14 @@
   vertical-align: middle;
 }
 
+@media (max-width: 768px) {
+  body {
+    background-size: contain;
+  }
+  .home-body {
+    font-size: 15px;
+  }
+  .home-desc {
+    font-size: 13px;
+  }
+}

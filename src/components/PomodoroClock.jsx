@@ -17,7 +17,7 @@ function PomodoroClock() {
 
         return (
             <Tabs
-                className='pomodoroTabs'
+                className='pomodoro-tabs'
                 value={activeTab}
                 onChange={handleTabs}
                 textColor='black'
@@ -34,10 +34,10 @@ function PomodoroClock() {
     return (
         <>
 
-            <div className='pomodoroBody' >
+            <div className='pomodoro-body' >
                 <h1 className='pomodoro-title'>Pomodoro Clock</h1>
-                <h4 className='description'>Be more productive and focused </h4 >
-                <Box className='pomodoroBox'>
+                <h4 className='pomodoro-description'>Be more productive and focused </h4 >
+                <Box className='pomodoro-box'>
                     {generateTabs()}
                     <ClockFeature activeTab={activeTab} />
                 </Box>

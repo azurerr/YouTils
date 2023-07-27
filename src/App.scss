@@ -1,3 +1,4 @@
+@import './styles/variables';
 
 .App {
   text-align: center;
@@ -13,31 +14,54 @@
   body {
     background-size: contain;
   }
+  .home-body {
+    font-size: 15px;
+  }
+  .home-desc {
+    font-size: 13px;
+  }
 }
 
 .App-header {
-  background-color: #282c34;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
 .App-body {
   display: flex;
-  flex-direction:row;
+  flex-direction:column;
   align-items: center;
+  justify-content: flex-start;
   min-width: fit-content;
   font-size: 2vmin;
   min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+
+  .App-content {
+    margin-top: 3em;
+    align-items: center;
+  }
+
+  a {
+    color: $link-color-light;
+    text-decoration: none;
+    background: transparent;
+
+    &:hover {
+      color: $hover-color-light;
+      font-weight: 500;
+      border-bottom: 1px solid $hover-color-light;
+    }
+
+    &:visited {
+      color: #bceab2;
+      border-color: $visited-color-light;
+    }
+  }
 }
 
 .home {
@@ -57,12 +81,8 @@
 }
 
 
-.menuTitle {
-  font-size: 1em;
-}
-
 .home-body {
-  margin-top: -8em;
+  padding: 3vmin;
 }
 .home-desc {
   color: rgb(41, 47, 44);
@@ -79,12 +99,3 @@
   vertical-align: middle;
 }
 
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

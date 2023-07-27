@@ -4,7 +4,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 function Home() {
     const githubUrl = 'https://github.com/azurerr/YouTils'; // Replace 'your-username' with your actual GitHub username
 
-
     return (
         < div className="home-body" >
             <h3>YouTils: short for Your Utilities</h3>

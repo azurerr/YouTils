@@ -1,0 +1,73 @@
+@import '../styles/_variables';
+@import url('https://fonts.googleapis.com/css2?family=Capriola&display=swap');
+
+.navi {
+  background-color: black; //transparent
+  font-family: 'Capriola', sans-serif;
+
+  .navi-title-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+
+  .navi-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: 1em;
+    // margin-bottom: 1rem;
+    letter-spacing: .3rem;
+    font-family: 'Capriola', sans-serif;
+  }
+
+  a {
+    color: $link-color-light;
+    text-decoration: none;
+    background: transparent;
+    transition: background 1s ease;
+
+    &:hover {
+      color: $hover-color-light;
+    }
+
+    &:visited {
+      color: $visited-color-light;
+      //border-color: $visited-color-dark;
+    }
+  }
+
+  .menu-item {
+    //display: flex;
+    //flex-direction: column;
+    //font-size: 1em ;
+    font-weight: 700;
+
+    a {
+      color: $link-color-light;
+      text-decoration: none;
+      background: transparent;
+      transition: background 1s ease;
+
+      &:hover {
+        color: $hover-color-light;
+        font-weight: 700;
+        //background: lighten($hover-color-light, 10%);
+        //border-bottom: 1px solid $hover-color-dark;
+      }
+
+      &:visited {
+        color: $visited-color-light;
+        //border-color: $visited-color-dark;
+      }
+    }
+
+    //margin-top: 1rem;
+    //text-overflow: ellipsis;
+
+    //   .menu-item {
+    //     margin-bottom: 1.5rem;
+    //     align-self: flex-start;
+    //     text-overflow: ellipsis;
+    //     min-width: 0;
+    //   }
+  }
+}

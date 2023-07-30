@@ -33,9 +33,9 @@ function NaviBar() {
                         <Typography
                             variant="h5"
                             noWrap
-                            component={NavLink} // Use NavLink instead of "a" tag
+                            component={NavLink}
                             to="/"
-                            className="navi-title" // Apply the menu-item class to the Typography
+                            className="navi-title"
                             sx={{
                                 display: { xs: 'none', md: 'flex' },
                             }}
@@ -76,8 +76,8 @@ function NaviBar() {
                                 <MenuItem className="menu-item" component={NavLink} to="/pomodoro" onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">Pomodoro Clock</Typography>
                                 </MenuItem>
-                                <MenuItem className="menu-item" component={NavLink} to="/lotto" onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">Lotto Numbers</Typography>
+                                <MenuItem className="menu-item" component={NavLink} to="/lottery" onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">Lottery Numbers</Typography>
                                 </MenuItem>
                                 <MenuItem className="menu-item" component={NavLink} to="/timer" onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">Timer</Typography>
@@ -97,19 +97,14 @@ function NaviBar() {
                             to="/"
                             className="navi-title"
                             sx={{
-                                //mr: 3,
                                 display: { xs: 'flex', md: 'none' },
                                 flexGrow: 1,
                                 fontWeight: 700,
-                                // letterSpacing: '.3rem',
-                                //color: 'inherit',
                                 textDecoration: 'none',
                             }}
                         >
                             YouTils
                         </Typography>
-
-
 
                         {/* Desktop Navigation */}
                         <Box className="menu-item" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
@@ -123,11 +118,11 @@ function NaviBar() {
                             </Button>
                             <Button
                                 component={NavLink}
-                                to="/lotto"
+                                to="/lottery"
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block', textDecoration: 'none' }}
                             >
-                                Lotto Numbers
+                                Lottery Numbers
                             </Button>
                             <Button
                                 component={NavLink}

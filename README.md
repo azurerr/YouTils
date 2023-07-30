@@ -11,7 +11,7 @@ This project is a work in progress. Feel free to contribute and help improve it!
 ## Features ✨
 
 - ⏰ **Pomodoro Clock** : A time management tool based on the Pomodoro Technique to improve productivity. 
-- 🎲 **Lotto Number Generator** : Generate random numbers for lotteries or other games of chance. 🚧
+- 🎲 **Lottery Number Generator** : Generate random numbers for lotteries or other games of chance. 🚧
 - ⌛ **Timer** : Set and track specific time durations for tasks that require precise timing. 🚧
 - 🔢 **Word Counter** : Determine the number of words in a given text. 🚧
 

@@ -8,7 +8,7 @@ import Layout from './Layout';
 import PomodoroClock from './components/PomodoroClock';
 import ErrorPage from "./error-page";
 import Home from './components/Home';
-import LottoNumbers from './components/LottoNumbers';
+import LotteryNumbers from './components/LotteryNumbers';
 import Timer from './components/Timer';
 import WordCounter from './components/WordCounter';
 import { Route, Routes } from 'react-router-dom'
@@ -28,7 +28,7 @@ import { Route, Routes } from 'react-router-dom'
 //       },
 //       {
 //         path: "/lotto",
-//         element: <LottoNumbers />,
+//         element: <LotteryNumbers />,
 //       },
 //     ]
 //   },
@@ -41,7 +41,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home to="/home" />} />
         <Route path="/pomodoro" element={<PomodoroClock />} />
-        <Route path="/lotto" element={<LottoNumbers />} />
+        <Route path="/lottery" element={<LotteryNumbers />} />
         <Route path="/timer" element={<Timer />} />
         <Route path="/wordcounter" element={<WordCounter />} />
         <Route path="*" errorElement={<ErrorPage />} />

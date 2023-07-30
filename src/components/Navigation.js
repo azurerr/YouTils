@@ -12,7 +12,7 @@ function Navigation() {
                     Pomodoro Clock
                 </NavLink >
                 <NavLink to="/lotto" className="menu-item">
-                    Lotto Numbers
+                    Lottery Numbers
                 </NavLink >
                 <NavLink to="/timer" className="menu-item">
                     Timer

@@ -1,42 +1,27 @@
 @import '../styles/variables';
 
-.lottery-title {
-  color: white;
-  text-shadow: -1px -1px 0 rgb(117, 125, 235),
-              1px -1px 0 rgb(117, 125, 235),
-              -1px 1px 0 rgb(117, 125, 235),
-              1px 1px 0 rgb(117, 125, 235);
-  margin: 0;
-}
-
-.lottery-description {
-  color: white;
-  margin: 1em;
-}
-
 .lottery-body {
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-width: max-content;
   justify-content: center;
 
-  a {
-    color: $link-color-light;
-    text-decoration: none;
-    background: transparent;
+}
 
-    &:hover {
-      color: $hover-color-light;
-      font-weight: 500;
-      border-bottom: 1px solid $hover-color-light;
-    }
+.lottery-title {
+  text-shadow: -1px -1px 0 rgb(175,41,146),
+              1px -1px 0 rgb(175,41,146),
+              -1px 1px 0 rgb(175,41,146),
+              1px 1px 0 rgb(175,41,146);
+  margin: 0;
+}
 
-    &:visited {
-      color: #bceab2;
-      border-color: $visited-color-light;
-    }
-  }
+.lottery-description, 
+.lottery-line-luck {
+  margin: 1em;
+  font-weight: 300;
 }
 
 .lottery-box {
@@ -44,18 +29,119 @@
   flex-direction: column;
   align-items: center;
   max-width: max-content;
-  background: rgba(255, 255, 255, 0.4);
-  padding: 2em;
+  background: rgba(5, 9, 41, 0.8);
+  padding: 1.5em 2em;
 }
 
+.lottery-line {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+.lottery-query {
+  margin: 0 5px;
+}
+
+button.button-picks, button.button-largest {
+    border-color: #8d0582;
+    color: white;
+    font-weight: 500;
+    margin: 0 5px;
+    width: 45px;
+    height: 45px;
+    border-radius: 30%;
+    padding: 8px;
+    min-width: 45px;
+
+  &:hover {
+    color: $hover-color-light;
+    font-weight: 500;
+    border-bottom: 1px solid $hover-color-light;
+    box-shadow: 2;
+    border-color: #e8dce7;
+    background-color: #4d1548 ;
+  }
+}
+
+button.active-button-largest,
+button.active-button-picks {
+  background-color: #8d0582;
+  border: 1px solid #e8dce7 !important;
+  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.7);
+}
+
+// button.button-picks.contained,
+// button.button-largest.contained {
+//   background-color: #8d0582; /* Set the background color for the 'contained' variant */
+//   color: $hover-color-light; /* Set the text color for the 'contained' variant */
+//   box-shadow: none; /* Remove box shadow for the 'contained' variant */
+//   border: 2px solid #8d0582; /* Add border for the 'contained' variant */
+// }
+
+.lottery-input {
+  color: white !important;
+  background-color: white !important;
+  width: 8em;
+  border-radius: 5%;
+  margin: 0 3px !important;
+}
+
+.lottery-checkbox {
+  background-color: white !important;
+  width: 18px;
+  height: 18px;
+  border-radius: 20% !important;
+  margin: 0 0.5em !important;
+
+}
+
+.button-generate {
+  background: linear-gradient(to right, #af2992, #bf0603);
+  font-weight: bold;
+}
+
+.lottery-numbers {
+  color: #af2992;
+  font-weight: 400;
+  font-size: 1.5em;
+}
+.errorMsg {
+  color: rgb(236, 86, 86);
+}
+
+.lottery-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background:linear-gradient(to right,  #f0adea,  #ce46c2);
+  margin: 10px;
+  line-height: 30px;
+  text-align: center;
+  animation: appearAnimation 1s ease forwards;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+}
+
+@keyframes appearAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+.lottery-current-number {
+  font-size: 24px;
+  color: black;
+}
 
 @media (max-width: 768px) {
-    .home-body {
-      font-size: 15px;
-    }
-    .lottery-description, .description {
-      font-size: 13px;
-      font-weight: 400;
-    }
+  .home-body {
+    font-size: 15px;
   }
-  
+  .lottery-description, .lottery-box {
+    font-size: 13px;
+    
+  }
+}

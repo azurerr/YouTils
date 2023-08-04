@@ -39,8 +39,10 @@ export default function LotteryNumbers() {
 
         if (numberOfPicks >= parseInt(largestNumber) + 1 - startNumber) {
             setErrorMsg('The largest number should be bigger than the number of picks');
+            setIsGenerating(false);
         } else if (numberOfPicks < 1) {
             setErrorMsg('The number of Picks should be bigger than 0');
+            setIsGenerating(false);
         }
         else {
             console.log('min:', startNumber, ", max: ", largestNumber)

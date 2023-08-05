@@ -105,6 +105,7 @@ export default function LotteryNumbers() {
                         type="number"
                         variant="filled"
                         color="success"
+                        size="small"
                         InputLabelProps={{
                             shrink: true,
                         }}
@@ -126,6 +127,7 @@ export default function LotteryNumbers() {
                         label="Enter a number"
                         type="number"
                         variant="filled"
+                        size="small"
                         InputLabelProps={{
                             shrink: true,
                         }}

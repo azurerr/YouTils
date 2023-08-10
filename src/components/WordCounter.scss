@@ -5,9 +5,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: max-content;
   justify-content: center;
-
 }
 
 .counter-title {
@@ -18,8 +16,7 @@
   margin: 0;
 }
 
-.counter-description, 
-.counter-line-luck {
+.counter-description {
   margin: 1em;
   font-weight: 300;
 }
@@ -34,71 +31,29 @@
   min-width: 500px;
 }
 
-.lottery-line {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-}
-.lottery-query {
-  margin: 0 5px;
-}
-
 button.counter-button {
-
     background: linear-gradient(to right, #e29c3a, #6b5103);
     color: white;
     font-weight: 500;
-    margin: 0 5px;
+    margin: 10px 5px;
     padding: .5em 1em;
 
   &:hover {
-    color: $hover-color-light;
-    font-weight: 500;
     border-bottom: 1px solid $hover-color-light;
     box-shadow: 2;
     border-color: #e8dce7;
-    background-color: #4d1548 ;
   }
 }
 
-button.active-button-largest,
-button.active-button-picks {
-  background-color: #8d0582;
-  border: 1px solid #e8dce7 !important;
-  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 0.7);
-}
-
-
-.lottery-input {
-  color: white !important;
-  background-color: white !important;
-  width: 7em;
-  border-radius: 5%;
-  margin: 0 3px !important;
-}
-
-
-.button-generate {
-  background: linear-gradient(to right, #d7c246, #816e06);
-  font-weight: bold;
-}
-
-
 .counter-result {
-    font-size: 1.5em;
+    font-size: 1.3em;
     color: black;
     padding: .3em;
   }
 .counter-number {
   color: #885a03;
   font-weight: 600;
-  //font-size: 1.5em;
 }
-.errorMsg {
-  color: rgb(236, 86, 86);
-}
-
-
 
 
 @media (max-width: 768px) {
@@ -107,6 +62,5 @@ button.active-button-picks {
   }
   .counter-description, .counter-box {
     font-size: 13px;
-    
   }
 }

@@ -8,33 +8,44 @@ export default function WordCounter() {
     const [wordCount, setWordCount] = useState(0);
     const [charCount, setCharCount] = useState(0);
     const [textInput, setTextInput] = useState('');
+    const [textFieldError, setTextFieldError] = useState(false);
 
     const handleClick = () => {
         const trimmedInput = textInput.trim();
         if (trimmedInput === '') {
+            setTextFieldError(true);
             setWordCount(0);
             setCharCount(0);
         } else {
+            setTextFieldError(false);
             const words = trimmedInput.split(/\s+/);
             setWordCount(words.length);
             setCharCount(textInput.length);
         }
     }
 
-    const initialize = () => {
+    const handleReset = () => {
         setTextInput('');
         setWordCount(0);
         setCharCount(0);
+        setTextFieldError(false);
+    };
+
+    const handleInputChange = (e) => {
+        setTextInput(e.target.value);
+        if (e.target.value.trim() !== '') {
+            setTextFieldError(false);
+        }
     };
 
     return (
         <div className='counter-body'>
             <h1 className='counter-title'>Word Counter</h1>
-            <h4 className='counter-description'>Check how many words you wrote securely. <br />
-                The sentences you entered won't be saved anywhere.</h4>
+            <h4 className='counter-description'>
+                Check how many words you wrote securely. <br />
+                The sentences you entered won't be saved anywhere.
+            </h4>
             <Box className='counter-box'>
-
-
                 <TextField
                     id="counter-textfield"
                     label="Text to Count"
@@ -42,9 +53,9 @@ export default function WordCounter() {
                     fullWidth
                     rows={10}
                     value={textInput}
-                    onChange={(e) => setTextInput(e.target.value)}></TextField>
-
-
+                    error={textFieldError}
+                    helperText={textFieldError ? 'Please enter text' : ''}
+                    onChange={handleInputChange}></TextField>
                 <div>
                     <Button
                         className="counter-button"
@@ -54,14 +65,19 @@ export default function WordCounter() {
                         Count
                     </Button>
                     < Button
-                        onClick={() => initialize()}
+                        onClick={handleReset}
                         sx={{ color: 'white' }}
                         disabled={textInput === ''}>
                         <RestartAltIcon sx={{ fontSize: 40 }}></RestartAltIcon>
                     </Button >
                 </div>
-                <div className="char-count">Character Count: {charCount}</div>
-                <div className="word-count">Word Count: {wordCount}</div>
+                <div className="counter-result">
+                    Character Count:
+                    <span className='counter-number'> {charCount}</span>
+                </div>
+                <div className="counter-result">
+                    Word Count:
+                    <span className='counter-number'> {wordCount}</span></div>
             </Box>
         </div>
     );

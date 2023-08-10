@@ -1,9 +1,18 @@
 import React from 'react';
+import { Box } from '@mui/material';
 
 function Timer() {
     return (
-        <div>
-            <h1>Timer 🚧</h1>
+        <div className='timer-body'>
+            <h1 className='timer-title'>Timer</h1>
+            <h4 className='timer-description'>Timer! 🚧</h4>
+            <Box className='timer-box'>
+
+                <div className="timer-line">
+
+                </div>
+
+            </Box>
         </div>
     );
 }

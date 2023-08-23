@@ -1,9 +1,5 @@
 import React from 'react';
 import './App.scss';
-// import {
-//   createBrowserRouter,
-//   RouterProvider,
-// } from "react-router-dom";
 import Layout from './Layout';
 import PomodoroClock from './components/PomodoroClock';
 import ErrorPage from "./error-page";
@@ -12,27 +8,6 @@ import LotteryNumbers from './components/LotteryNumbers';
 import Timer from './components/Timer';
 import WordCounter from './components/WordCounter';
 import { Route, Routes } from 'react-router-dom'
-
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: (
-//       <Home />
-//     ),
-//     errorElement: <ErrorPage />,
-//     children: [
-//       {
-//         path: "/pomodoro",
-//         element: <PomodoroClock />,
-//       },
-//       {
-//         path: "/lotto",
-//         element: <LotteryNumbers />,
-//       },
-//     ]
-//   },
-// ])
 
 function App() {
 
@@ -44,9 +19,8 @@ function App() {
         <Route path="/lottery" element={<LotteryNumbers />} />
         <Route path="/timer" element={<Timer />} />
         <Route path="/wordcounter" element={<WordCounter />} />
-        <Route path="*" errorElement={<ErrorPage />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
-      {/* <RouterProvider router={router} ></RouterProvider> */}
     </Layout>
   );
 }

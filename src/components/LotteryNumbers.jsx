@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './LotteryNumbers.scss';
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -8,14 +8,50 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 export default function LotteryNumbers() {
 
-    const [largestNumber, setLargestNumber] = useState(49);
-    const [numberOfPicks, setNumberOfPicks] = useState(6);
-    const [includeZero, setIncludeZero] = useState(false);
+    const [largestNumber, setLargestNumber] = useState(() => {
+        const storedLargestNumber = localStorage.getItem("largestNumber");
+        return storedLargestNumber ? parseInt(storedLargestNumber) : 49;
+    });
+    const [numberOfPicks, setNumberOfPicks] = useState(() => {
+        const storedNumberOfPicks = localStorage.getItem("numberOfPicks");
+        return storedNumberOfPicks ? parseInt(storedNumberOfPicks) : 6;
+    });
+    const [includeZero, setIncludeZero] = useState(() => {
+        const storedIncludeZero = localStorage.getItem("includeZero");
+        return storedIncludeZero === "true" ? true : false;
+    });
     const [generatedNumbers, setGeneratedNumbers] = useState([]);
     const [errorMsg, setErrorMsg] = useState('');
     const [displayedNumbers, setDisplayedNumbers] = useState([]);
     const [isGenerating, setIsGenerating] = useState(false);
 
+    useEffect(() => {
+        const storedLargestNumber = localStorage.getItem("largestNumber");
+        const storedNumberOfPicks = localStorage.getItem("numberOfPicks");
+        const storedIncludeZero = localStorage.getItem("includeZero");
+
+        if (storedLargestNumber) {
+            setLargestNumber(parseInt(storedLargestNumber));
+        }
+        if (storedNumberOfPicks) {
+            setNumberOfPicks(parseInt(storedNumberOfPicks));
+        }
+        if (storedIncludeZero !== null) {
+            setIncludeZero(storedIncludeZero === "true");
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem("largestNumber", largestNumber);
+    }, [largestNumber]);
+
+    useEffect(() => {
+        localStorage.setItem("numberOfPicks", numberOfPicks);
+    }, [numberOfPicks]);
+
+    useEffect(() => {
+        localStorage.setItem("includeZero", includeZero);
+    }, [includeZero]);
 
     // Function to handle sequential display of numbers
     const displayNumbers = (numbers, currentIndex) => {

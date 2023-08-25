@@ -4,9 +4,9 @@
 YouTils is a website that provides a collection of helpful utilities to assist users in various tasks.
 
 Deployed on Google Cloud!
-https://youtils-1125.uc.r.appspot.com/
+http://www.youtils.space/
 
-This project is a work in progress. Feel free to contribute and help improve it! 
+This project is a work in progress. Feel free to contribute and help improve it.
 
 <img src="https://github.com/azurerr/YouTils/assets/41781756/b2c8c83c-f98d-4717-8c7a-78f2a00ed096" alt="Screenshot of Pomodoro Clock" width="500">
 

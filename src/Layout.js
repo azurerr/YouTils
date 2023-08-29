@@ -26,6 +26,7 @@ function Layout(props) {
 
         } else {
             setMenu('home');
+            document.title = 'Youtils';
         }
     }, [location.pathname])
 

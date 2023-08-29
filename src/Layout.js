@@ -14,6 +14,16 @@ function Layout(props) {
         let menu = currentPath.split('/').pop();
         if (menu) {
             setMenu(menu);
+            if (menu === 'pomodoro') {
+                document.title = 'Pomodoro Clock';
+            } else if (menu === 'lottery') {
+                document.title = 'Lottery Number Generator';
+            } else if (menu === 'timer') {
+                document.title = 'Timer';
+            } else {
+                document.title = 'Word Counter';
+            }
+
         } else {
             setMenu('home');
         }

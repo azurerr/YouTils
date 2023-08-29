@@ -1,7 +1,7 @@
 
 # YouTils 🌐
 
-YouTils is a website that provides a collection of helpful utilities to assist users in various tasks.
+YouTils is a web application that provides a collection of helpful utilities to assist users in various tasks.
 
 Deployed on Google Cloud!
 http://www.youtils.space/

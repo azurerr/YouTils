@@ -43,50 +43,6 @@ function NaviBar() {
                             YouTils
                         </Typography>
 
-                        {/* Hambuger menu */}
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                            <IconButton
-                                size="large"
-                                aria-label="site menu"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleOpenNavMenu}
-                                color="inherit"
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorElNav}
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'left',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
-                                open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
-                                sx={{
-                                    display: { xs: 'block', md: 'none' },
-                                }}
-                            >
-                                <MenuItem className="menu-item" component={NavLink} to="/pomodoro" onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">Pomodoro Clock</Typography>
-                                </MenuItem>
-                                <MenuItem className="menu-item" component={NavLink} to="/lottery" onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">Lottery Numbers</Typography>
-                                </MenuItem>
-                                <MenuItem className="menu-item" component={NavLink} to="/timer" onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">Timer</Typography>
-                                </MenuItem>
-                                <MenuItem className="menu-item" component={NavLink} to="/wordcounter" onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">Word Counter</Typography>
-                                </MenuItem>
-                            </Menu>
-                        </Box>
 
 
                         <AttractionsIcon className="navi-title-icon" sx={{ display: { xs: 'flex', md: 'none' } }} />
@@ -141,6 +97,52 @@ function NaviBar() {
                                 Word Counter
                             </Button>
                         </Box>
+
+                        {/* Hambuger menu */}
+                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                            <IconButton
+                                size="large"
+                                aria-label="site menu"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorElNav}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'right',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'right',
+                                }}
+                                open={Boolean(anchorElNav)}
+                                onClose={handleCloseNavMenu}
+                                sx={{
+                                    display: { xs: 'block', md: 'none' },
+                                }}
+                            >
+                                <MenuItem className="menu-item" component={NavLink} to="/pomodoro" onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">Pomodoro Clock</Typography>
+                                </MenuItem>
+                                <MenuItem className="menu-item" component={NavLink} to="/lottery" onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">Lottery Numbers</Typography>
+                                </MenuItem>
+                                <MenuItem className="menu-item" component={NavLink} to="/timer" onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">Timer</Typography>
+                                </MenuItem>
+                                <MenuItem className="menu-item" component={NavLink} to="/wordcounter" onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center">Word Counter</Typography>
+                                </MenuItem>
+                            </Menu>
+                        </Box>
+
                     </Toolbar>
                 </Container>
             </AppBar>

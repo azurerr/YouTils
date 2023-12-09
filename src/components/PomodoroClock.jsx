@@ -39,9 +39,10 @@ function PomodoroClock() {
                     {generateTabs()}
                     <ClockFeature activeTab={activeTab} />
                 </Box>
-                <div className='description'><a href="https://francescocirillo.com/products/the-pomodoro-technique" target="_blank" rel="noopener noreferrer">Pomodoro Technique?</a></div>
+                <div className='description'>
+                    <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank" rel="noopener noreferrer">Pomodoro Technique?</a></div>
             </div>
-        </>
+        </> 
     );
 }
 

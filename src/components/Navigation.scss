@@ -53,6 +53,9 @@
         text-overflow: ellipsis;
         min-width: 0;
       }
+      .menu-item.active {
+        font-weight: bold;
+    }
     }
 
   }

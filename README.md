@@ -23,11 +23,11 @@ This project is a work in progress. Feel free to contribute and help improve it.
 - JavaScript
 - React
 - Node.js
-- SCSS
+- Sass
 - Material UI
 - Firebase
 - GraphQL
-- Google Cloud (App Engine)
+- Google Cloud
 
 ## Getting Started 🚀
 

@@ -1,5 +1,5 @@
 
-.loginTitle {
+.signinTitle {
     margin: 11px;
 }
 
@@ -25,6 +25,7 @@
     overflow: hidden;
     padding: 0 12px;
     margin: 10px;
+    margin-bottom: 20px;
     position: relative;
     text-align: center;
     -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
@@ -108,3 +109,16 @@
     opacity: 8%;
   }
   
+$modal-width: 300px; // Define width as a variable for reuse
+
+.login-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: $modal-width;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 24;
+  padding: 10px;
+}

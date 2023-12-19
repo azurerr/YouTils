@@ -14,15 +14,17 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AttractionsIcon from "@mui/icons-material/Attractions";
 import { NavLink } from "react-router-dom";
-import LogIn from "./Login/LogIn";
+import SignIn from "./SignIn/SignIn";
+import SignUp from "./SignIn/SignUp";
 
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function NaviBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [showLoginModal, setShowLoginModal] = useState(false);
-  const [logInState, setLoginState] = useState(false);
+  const [showSigninModal, setShowSigninModal] = useState(false);
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+  const [signInState, setSigninState] = useState(false);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -40,12 +42,21 @@ function NaviBar() {
     setAnchorElUser(null);
   };
 
-  const handleLoginButtonClick = () => {
-    setShowLoginModal(true);
+  const handleSigninButtonClick = () => {
+    setShowSigninModal(true);
   };
 
-  const handleCloseLoginModal = () => {
-    setShowLoginModal(false);
+  const handleSignUpButtonClick = () => {
+    setShowSigninModal(false);
+    setShowSignUpModal(true);
+  };
+
+  const handleCloseSigninModal = () => {
+    setShowSigninModal(false);
+  };
+
+  const handleCloseSignUpModal = () => {
+    setShowSignUpModal(false);
   };
 
   return (
@@ -214,7 +225,7 @@ function NaviBar() {
               </Menu>
             </Box>
 
-            {logInState ? (
+            {signInState ? (
               <>
                 <Menu
                   sx={{ mt: "45px" }}
@@ -250,12 +261,18 @@ function NaviBar() {
                 </Box>
               </>
             ) : (
-              <Button className="menu-item" onClick={handleLoginButtonClick}>
-                Log In
+              <Button className="menu-item" onClick={handleSigninButtonClick}>
+                Sign In
               </Button>
             )}
-            {showLoginModal && (
-              <LogIn handleCloseLoginModal={handleCloseLoginModal} /> // Pass handleCloseLoginModal to the LogIn component to handle modal close
+            {showSigninModal && (
+              <SignIn
+                handleCloseSigninModal={handleCloseSigninModal}
+                handleSignUpButtonClick={handleSignUpButtonClick}
+              />
+            )}
+            {showSignUpModal && (
+              <SignUp handleCloseSignUpModal={handleCloseSignUpModal} />
             )}
           </Toolbar>
         </Container>

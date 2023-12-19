@@ -1,30 +1,52 @@
-import * as React from "react";
-import "./Login.scss";
+import { useState } from "react";
+import "./SignIn.scss";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-//import Button from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../../firebase";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+export default function SignIn({
+  handleCloseSigninModal,
+  handleSignUpButtonClick,
+}) {
+  const [open, setOpen] = useState(true);
 
-export default function LogIn({ handleCloseLoginModal }) {
-  const [open, setOpen] = React.useState(true);
-  //const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-    handleCloseLoginModal();
+    handleCloseSigninModal();
+  };
+
+  // const handleSignUpButtonClick = () => {
+  //   handleClose();
+  // };
+
+  const handleSignInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = provider.credentialFromResult(result);
+        const token = credential.accessToken;
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+        console.log("token: " + token);
+        console.log("user: " + user);
+      })
+      .catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = provider.credentialFromError(error);
+        // ...
+      });
   };
 
   return (
@@ -43,8 +65,16 @@ export default function LogIn({ handleCloseLoginModal }) {
         }}
       >
         <Fade in={open}>
-          <Box sx={style}>
-            <button class="gsi-material-button">
+          <Box className="login-modal">
+            <div className="signinTitle">
+              <Typography variant="h6" gutterBottom>
+                Sign In
+              </Typography>
+            </div>
+            <button
+              class="gsi-material-button"
+              onClick={handleSignInWithGoogle}
+            >
               <div class="gsi-material-button-state"></div>
               <div class="gsi-material-button-content-wrapper">
                 <div class="gsi-material-button-icon">
@@ -81,9 +111,12 @@ export default function LogIn({ handleCloseLoginModal }) {
               </div>
             </button>
 
-            <div className="loginTitle">
-              <Typography id="transition-modal-title">
-                No Account? <a href="/">Create One</a>
+            <div className="signinTitle">
+              <Typography variant="text">
+                No Account?
+                <Button variant="text" onClick={handleSignUpButtonClick}>
+                  Create One
+                </Button>
               </Typography>
             </div>
           </Box>

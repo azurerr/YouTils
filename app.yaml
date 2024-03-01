@@ -1,7 +1,7 @@
 # app.yaml
 
 env: standard
-runtime: nodejs16
+runtime: nodejs20
 service: default
 
 handlers:

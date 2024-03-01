@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../../Redux/actions";
 import "./SignIn.scss";
@@ -23,7 +23,7 @@ function SignIn({ handleCloseSigninModal, loginUser }) {
     handleClose();
     signInWithPopup(auth, provider)
       .then((result) => {
-        //debugger;
+        window.location.reload();
         const userData = {
           displayName: result.user.displayName,
           email: result.user.email,
@@ -33,22 +33,11 @@ function SignIn({ handleCloseSigninModal, loginUser }) {
         loginUser(userData);
         localStorage.setItem("email", result.user.email);
         localStorage.setItem("name", result.user.displayName);
-
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
-        //console.log("token: " + token);
-        //console.log("userName: " + name);
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
-        //const email = error.customData.email;
-        // The AuthCredential type that was used.
-        // const credential = provider.credentialFromError(error);
         console.log("Error!", errorCode, errorMessage);
-        // ...
       });
   };
 

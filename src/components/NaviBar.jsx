@@ -24,6 +24,7 @@ function NaviBar() {
   const [showSigninModal, setShowSigninModal] = useState(false);
   const [signInState, setSigninState] = useState(false);
   const [email, setEmail] = useState(null);
+  //const { email, name } = user;
 
   useEffect(() => {
     setEmail(localStorage.getItem("email"));
@@ -57,7 +58,8 @@ function NaviBar() {
   };
 
   const handleLogOut = () => {
-    localStorage.clear();
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
     setSigninState(false);
     logoutUser();
     window.location.reload();
@@ -247,8 +249,21 @@ function NaviBar() {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  <Button>Dashboard</Button>
-                  <Button onClick={handleLogOut}>LogOut</Button>
+                  <MenuItem
+                    className="menu-item"
+                    component={NavLink}
+                    to=""
+                    onClick={handleCloseNavMenu}
+                  >
+                    <Typography textAlign="center">Dashboard</Typography>
+                  </MenuItem>
+                  <MenuItem
+                    className="menu-item"
+                    component={NavLink}
+                    onClick={handleLogOut}
+                  >
+                    <Typography textAlign="center">LogOut</Typography>
+                  </MenuItem>
                   {/* {settings.map((setting) => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
                       <Typography textAlign="center">{setting}</Typography>
@@ -258,10 +273,7 @@ function NaviBar() {
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      <Avatar
-                        alt="Remy Sharp"
-                        src="/static/images/avatar/2.jpg"
-                      />
+                      <Avatar alt={email} src="/static/images/avatar/2.jpg" />
                     </IconButton>
                   </Tooltip>
                 </Box>
@@ -282,7 +294,6 @@ function NaviBar() {
 }
 
 const mapStateToProps = (state) => {
-  console.log("state:", state);
   return { user: state.user };
 };
 

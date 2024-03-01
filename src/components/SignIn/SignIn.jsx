@@ -1,18 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { loginUser } from "../../Redux/actions";
 import "./SignIn.scss";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../firebase";
+import "firebaseui/dist/firebaseui.css";
 
-export default function SignIn({
-  handleCloseSigninModal,
-  handleSignUpButtonClick,
-}) {
+function SignIn({ handleCloseSigninModal, loginUser }) {
   const [open, setOpen] = useState(true);
 
   const handleClose = () => {
@@ -20,34 +19,40 @@ export default function SignIn({
     handleCloseSigninModal();
   };
 
-  // const handleSignUpButtonClick = () => {
-  //   handleClose();
-  // };
-
   const handleSignInWithGoogle = () => {
+    handleClose();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = provider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
+        //debugger;
+        const userData = {
+          displayName: result.user.displayName,
+          email: result.user.email,
+          photoUrl: result.user.photoURL,
+        };
+
+        loginUser(userData);
+        localStorage.setItem("email", result.user.email);
+        localStorage.setItem("name", result.user.displayName);
+
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        console.log("token: " + token);
-        console.log("user: " + user);
+        //console.log("token: " + token);
+        //console.log("userName: " + name);
       })
       .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         // The email of the user's account used.
-        const email = error.customData.email;
+        //const email = error.customData.email;
         // The AuthCredential type that was used.
-        const credential = provider.credentialFromError(error);
+        // const credential = provider.credentialFromError(error);
+        console.log("Error!", errorCode, errorMessage);
         // ...
       });
   };
+
+  //useEffect(() => {}, []);
 
   return (
     <div>
@@ -110,18 +115,15 @@ export default function SignIn({
                 <span style={{ display: "none" }}>Sign in with Google</span>
               </div>
             </button>
-
-            <div className="signinTitle">
-              <Typography variant="text">
-                No Account?
-                <Button variant="text" onClick={handleSignUpButtonClick}>
-                  Create One
-                </Button>
-              </Typography>
-            </div>
           </Box>
         </Fade>
       </Modal>
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  loginUser: (userData) => dispatch(loginUser(userData)),
+});
+
+export default connect(null, mapDispatchToProps)(SignIn);

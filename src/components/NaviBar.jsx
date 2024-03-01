@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./NaviBar.scss";
+import { connect } from "react-redux";
+import { loginUser, logoutUser } from "../Redux/actions";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -15,16 +17,20 @@ import MenuItem from "@mui/material/MenuItem";
 import AttractionsIcon from "@mui/icons-material/Attractions";
 import { NavLink } from "react-router-dom";
 import SignIn from "./SignIn/SignIn";
-import SignUp from "./SignIn/SignUp";
-
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function NaviBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [showSigninModal, setShowSigninModal] = useState(false);
-  const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [signInState, setSigninState] = useState(false);
+  const [email, setEmail] = useState(null);
+
+  useEffect(() => {
+    setEmail(localStorage.getItem("email"));
+    setShowSigninModal(false);
+    setSigninState(true);
+    console.log("Email:", email);
+  }, [email]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -46,17 +52,15 @@ function NaviBar() {
     setShowSigninModal(true);
   };
 
-  const handleSignUpButtonClick = () => {
-    setShowSigninModal(false);
-    setShowSignUpModal(true);
-  };
-
   const handleCloseSigninModal = () => {
     setShowSigninModal(false);
   };
 
-  const handleCloseSignUpModal = () => {
-    setShowSignUpModal(false);
+  const handleLogOut = () => {
+    localStorage.clear();
+    setSigninState(false);
+    logoutUser();
+    window.location.reload();
   };
 
   return (
@@ -225,7 +229,7 @@ function NaviBar() {
               </Menu>
             </Box>
 
-            {signInState ? (
+            {email ? (
               <>
                 <Menu
                   sx={{ mt: "45px" }}
@@ -243,11 +247,13 @@ function NaviBar() {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  {settings.map((setting) => (
+                  <Button>Dashboard</Button>
+                  <Button onClick={handleLogOut}>LogOut</Button>
+                  {/* {settings.map((setting) => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu}>
                       <Typography textAlign="center">{setting}</Typography>
                     </MenuItem>
-                  ))}
+                  ))} */}
                 </Menu>
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Open settings">
@@ -266,13 +272,7 @@ function NaviBar() {
               </Button>
             )}
             {showSigninModal && (
-              <SignIn
-                handleCloseSigninModal={handleCloseSigninModal}
-                handleSignUpButtonClick={handleSignUpButtonClick}
-              />
-            )}
-            {showSignUpModal && (
-              <SignUp handleCloseSignUpModal={handleCloseSignUpModal} />
+              <SignIn handleCloseSigninModal={handleCloseSigninModal} />
             )}
           </Toolbar>
         </Container>
@@ -281,4 +281,14 @@ function NaviBar() {
   );
 }
 
-export default NaviBar;
+const mapStateToProps = (state) => {
+  console.log("state:", state);
+  return { user: state.user };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  loginUser: (userData) => dispatch(loginUser(userData)),
+  logoutUser: () => dispatch(logoutUser()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NaviBar);

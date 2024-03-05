@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./NaviBar.scss";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { loginUser, logoutUser } from "../Redux/actions";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -22,16 +22,25 @@ function NaviBar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [showSigninModal, setShowSigninModal] = useState(false);
-  const [signInState, setSigninState] = useState(false);
-  const [email, setEmail] = useState(null);
-  //const { email, name } = user;
+
+  const { email, displayName, photoUrl } = useSelector((state) => state.user);
+
+  console.log('userData in NaviBar:', email, displayName, photoUrl);
+  const dispatch = useDispatch();
+
+  const handleUserUpdate = () => {
+    // Trigger re-render using state management (e.g., forceUpdate)
+  };
 
   useEffect(() => {
-    setEmail(localStorage.getItem("email"));
-    setShowSigninModal(false);
-    setSigninState(true);
-    console.log("Email:", email);
+    //const unsubscribe = store.subscribe(() => handleUserUpdate());
+    //return () => unsubscribe();
+
+    //console.log("Email:", email);
   }, [email]);
+
+
+
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -58,11 +67,12 @@ function NaviBar() {
   };
 
   const handleLogOut = () => {
-    localStorage.removeItem("email");
-    localStorage.removeItem("name");
-    setSigninState(false);
-    logoutUser();
-    window.location.reload();
+    // localStorage.removeItem("email");
+    // localStorage.removeItem("name");
+    // setSigninState(false);
+    // logoutUser();
+    // window.location.reload();
+    dispatch(logoutUser());
   };
 
   return (
@@ -273,7 +283,7 @@ function NaviBar() {
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                      <Avatar alt={email} src="/static/images/avatar/2.jpg" />
+                      <Avatar alt={displayName} src={photoUrl} />
                     </IconButton>
                   </Tooltip>
                 </Box>

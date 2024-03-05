@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { loginUser } from "../../Redux/actions";
 import "./SignIn.scss";
 import Backdrop from "@mui/material/Backdrop";
@@ -11,8 +11,9 @@ import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "../../firebase";
 import "firebaseui/dist/firebaseui.css";
 
-function SignIn({ handleCloseSigninModal, loginUser }) {
+function SignIn({ handleCloseSigninModal }) {
   const [open, setOpen] = useState(true);
+  const dispatch = useDispatch();
 
   const handleClose = () => {
     setOpen(false);
@@ -20,9 +21,12 @@ function SignIn({ handleCloseSigninModal, loginUser }) {
   };
 
   const handleSignInWithGoogle = () => {
-    handleClose();
+
+    console.log('Will log in!:');
     signInWithPopup(auth, provider)
       .then((result) => {
+        //debugger;
+        console.log('Logged In!:', result);
         window.location.reload();
         const userData = {
           displayName: result.user.displayName,
@@ -30,9 +34,11 @@ function SignIn({ handleCloseSigninModal, loginUser }) {
           photoUrl: result.user.photoURL,
         };
 
-        loginUser(userData);
-        localStorage.setItem("email", result.user.email);
-        localStorage.setItem("name", result.user.displayName);
+        dispatch(loginUser(userData));
+        console.log('userData in SingIn:', userData);
+        // localStorage.setItem("email", result.user.email);
+        // localStorage.setItem("name", result.user.displayName);
+        handleClose();
       })
       .catch((error) => {
         const errorCode = error.code;

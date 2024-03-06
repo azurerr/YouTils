@@ -24,7 +24,6 @@ function SignIn({ handleCloseSigninModal }) {
 
     signInWithPopup(auth, provider)
       .then((result) => {
-        debugger;
         const userData = {
           displayName: result.user.displayName,
           email: result.user.email,

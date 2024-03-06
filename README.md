@@ -23,6 +23,7 @@ This project is a work in progress. Feel free to contribute and help improve it.
 - JavaScript
 - React
 - Node.js
+- Redux
 - Sass
 - Material UI
 - Firebase

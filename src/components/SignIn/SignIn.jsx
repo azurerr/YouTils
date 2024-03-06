@@ -22,22 +22,15 @@ function SignIn({ handleCloseSigninModal }) {
 
   const handleSignInWithGoogle = () => {
 
-    console.log('Will log in!:');
     signInWithPopup(auth, provider)
       .then((result) => {
-        //debugger;
-        console.log('Logged In!:', result);
-        window.location.reload();
+        debugger;
         const userData = {
           displayName: result.user.displayName,
           email: result.user.email,
           photoUrl: result.user.photoURL,
         };
-
         dispatch(loginUser(userData));
-        console.log('userData in SingIn:', userData);
-        // localStorage.setItem("email", result.user.email);
-        // localStorage.setItem("name", result.user.displayName);
         handleClose();
       })
       .catch((error) => {
@@ -47,7 +40,6 @@ function SignIn({ handleCloseSigninModal }) {
       });
   };
 
-  //useEffect(() => {}, []);
 
   return (
     <div>
@@ -72,12 +64,12 @@ function SignIn({ handleCloseSigninModal }) {
               </Typography>
             </div>
             <button
-              class="gsi-material-button"
+              className="gsi-material-button"
               onClick={handleSignInWithGoogle}
             >
-              <div class="gsi-material-button-state"></div>
-              <div class="gsi-material-button-content-wrapper">
-                <div class="gsi-material-button-icon">
+              <div className="gsi-material-button-state"></div>
+              <div className="gsi-material-button-content-wrapper">
+                <div className="gsi-material-button-icon">
                   <svg
                     version="1.1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +96,7 @@ function SignIn({ handleCloseSigninModal }) {
                     <path fill="none" d="M0 0h48v48H0z"></path>
                   </svg>
                 </div>
-                <span class="gsi-material-button-contents">
+                <span className="gsi-material-button-contents">
                   Sign in with Google
                 </span>
                 <span style={{ display: "none" }}>Sign in with Google</span>
@@ -117,8 +109,12 @@ function SignIn({ handleCloseSigninModal }) {
   );
 }
 
+const mapStateToProps = (state) => {
+  return { user: state.user };
+};
+
 const mapDispatchToProps = (dispatch) => ({
   loginUser: (userData) => dispatch(loginUser(userData)),
 });
 
-export default connect(null, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

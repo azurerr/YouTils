@@ -19,7 +19,7 @@ function PomodoroClock() {
                 className='pomodoro-tabs'
                 value={activeTab}
                 onChange={handleTabs}
-                textColor='black'
+                textColor='inherit'
                 TabIndicatorProps={{ style: { background: '#AAAAAA' } }}
                 aria-label='select clock'
             >
@@ -42,7 +42,7 @@ function PomodoroClock() {
                 <div className='description'>
                     <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank" rel="noopener noreferrer">Pomodoro Technique?</a></div>
             </div>
-        </> 
+        </>
     );
 }
 

@@ -24,23 +24,11 @@ function NaviBar() {
   const [showSigninModal, setShowSigninModal] = useState(false);
 
   const { email, displayName, photoUrl } = useSelector((state) => state.user);
-
-  console.log('userData in NaviBar:', email, displayName, photoUrl);
   const dispatch = useDispatch();
 
-  const handleUserUpdate = () => {
-    // Trigger re-render using state management (e.g., forceUpdate)
-  };
-
   useEffect(() => {
-    //const unsubscribe = store.subscribe(() => handleUserUpdate());
-    //return () => unsubscribe();
-
-    //console.log("Email:", email);
+    console.log("Email:", email);
   }, [email]);
-
-
-
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -67,11 +55,6 @@ function NaviBar() {
   };
 
   const handleLogOut = () => {
-    // localStorage.removeItem("email");
-    // localStorage.removeItem("name");
-    // setSigninState(false);
-    // logoutUser();
-    // window.location.reload();
     dispatch(logoutUser());
   };
 
@@ -274,11 +257,6 @@ function NaviBar() {
                   >
                     <Typography textAlign="center">LogOut</Typography>
                   </MenuItem>
-                  {/* {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))} */}
                 </Menu>
                 <Box sx={{ flexGrow: 0 }}>
                   <Tooltip title="Open settings">

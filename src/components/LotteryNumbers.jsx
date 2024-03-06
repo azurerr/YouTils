@@ -81,7 +81,6 @@ export default function LotteryNumbers() {
             setIsGenerating(false);
         }
         else {
-            console.log('min:', startNumber, ", max: ", largestNumber)
             while (numbers.length < numberOfPicks) {
                 const randomNumber = Math.floor(Math.random() * (largestNumber - startNumber + 1)) + startNumber;
                 if (!numbers.includes(randomNumber)) {
